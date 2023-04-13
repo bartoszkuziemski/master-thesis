@@ -1,0 +1,23 @@
+name: benchmark
+http:
+  host: localhost:8081
+  sharedConnections: 200
+usersPerSec: 100
+maxSessions: 2000
+duration: 60s
+scenario:
+  - test:
+      - httpRequest:
+          GET: /products
+          handler:
+            # We'll check that the response was successful (status 200-299)
+            status:
+              range: 2xx
+            # When the response is fully processed we'll set variable `completed`
+            # in the session.
+            onCompletion:
+              set: completed <- yes
+            # For demonstration purposes we will set `sync: false`.
+            # Next step is executed immediately after we fire the request, not
+            # waiting for the response.
+          sync: false
