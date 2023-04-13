@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.ProductAddDto;
 import com.example.dto.ProductDto;
 import com.example.model.enums.CategoryType;
 import com.example.model.enums.ConditionType;
@@ -43,4 +44,38 @@ public class ProductController {
         );
         return Response.ok(products).build();
     }
+
+    @GET
+    @Path("/{id}")
+    public Response getProduct(@PathParam("id") Long id) {
+        ProductDto product = productService.getProduct(id);
+        return Response.ok(product).build();
+    }
+
+    @POST
+    public Response addProduct(ProductAddDto productAddDto) {
+        ProductDto product = productService.addProduct(productAddDto);
+        return Response.ok(product).build();
+    }
+
+    @DELETE
+    public Response deleteProduct() {
+        String message = productService.deleteProduct();
+        return Response.ok(message).build();
+    }
+
+    @GET
+    @Path("/number")
+    public Response getProductsNumber() {
+        Long number = productService.getProductsNumber();
+        return Response.ok(number).build();
+    }
+
+    @DELETE
+    @Path("/all")
+    public Response deleteAllProducts() {
+        productService.deleteAllProducts();
+        return Response.ok().build();
+    }
+
 }

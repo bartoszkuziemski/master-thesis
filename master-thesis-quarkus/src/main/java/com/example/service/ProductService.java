@@ -14,6 +14,7 @@ import com.example.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +26,7 @@ public class ProductService {
     private final ProductMapper productMapper;
     private Long commonIdForThreads = 10000L;
 
+    @Transactional
     public ProductDto addProduct(ProductAddDto productAddDto) {
         Product product = productMapper.toEntity(productAddDto);
         productRepository.persist(product);
