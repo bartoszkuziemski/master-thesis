@@ -1,14 +1,10 @@
 package com.example.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -17,7 +13,12 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "app_user")
-public class User extends PanacheEntity {
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;

@@ -38,14 +38,14 @@ public class ProductMapper {
 
     public ProductDto toDto(Product product) {
         UserDto userDto = new UserDto(
-                product.getUser().id,
+                product.getUser().getId(),
                 product.getUser().getEmail(),
                 product.getUser().getUsername(),
                 product.getUser().getFirstName(),
                 product.getUser().getSurname()
         );
         return new ProductDto(
-                product.id,
+                product.getId(),
                 product.getName(),
                 product.getPrice(),
                 product.getDescription(),

@@ -37,6 +37,7 @@ public class ProductService {
         return productMapper.toDto(productRepository.listAll());
     }
 
+    @Transactional
     public String deleteProduct() {
         Long id = getNextId();
         productRepository.deleteById(id);
