@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    container_name: spring-db
+    container_name: quarkus-db
     image: postgres:14.4-alpine
     restart: always
     environment:
@@ -11,10 +11,10 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - path:/var/lib/spring-db
+      - path:/var/lib/quarkus-db
 
   backend:
-    container_name: spring-backend
+    container_name: quarkus-backend
     build:
       context: .
     ports:
