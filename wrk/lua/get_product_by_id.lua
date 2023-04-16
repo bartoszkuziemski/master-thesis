@@ -1,5 +1,4 @@
 math.randomseed(os.clock()*100000000000)
-json = require("json")
 
 request = function()
     local id = math.random(1, 10000)
