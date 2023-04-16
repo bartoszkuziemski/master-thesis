@@ -4,7 +4,3 @@ time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status
 post_product
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799764,1799965495,0,0,0,0,0,21683.393412877,4859,5455,6055,776703,1466367,1686527,1790975,2045951,
-
-all_requests
-time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
-30,100,1000,69503,70503456,0,0,0,0,0,11709.818342416,9183,14855,24351,46655,63103,73023,75583,77951,

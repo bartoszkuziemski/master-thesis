@@ -2,6 +2,9 @@ local require = require
 local cjson = require("cjson")
 math.randomseed(os.clock()*100000000000)
 
+-- counter for delete_product_by_id method
+local product_id = 1000
+
 function ParseCSVLine(line,sep)
 	local res = {}
 	local pos = 1
@@ -64,7 +67,8 @@ local function post_request()
 end
 
 local function delete_request()
-    local path = "/products"
+    product_id = product_id + 1
+    local path = "/products/" .. product_id
     local headers = { ["Content-Type"] = "application/json;charset=UTF-8" }
     return wrk.format("DELETE", path, headers)
 end

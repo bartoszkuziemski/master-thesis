@@ -7,8 +7,6 @@ import com.example.masterthesisspring.model.enums.ConditionType;
 import com.example.masterthesisspring.model.enums.OfferType;
 import com.example.masterthesisspring.service.ProductService;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +19,6 @@ import java.util.Set;
 @RequestMapping("/products")
 public class ProductController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
 
     @GetMapping("/all")
@@ -55,9 +52,9 @@ public class ProductController {
         return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
     }
 
-    @DeleteMapping()
-    public ResponseEntity<String> deleteProduct() {
-        return new ResponseEntity<>(productService.deleteProduct(), HttpStatus.OK);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+        return new ResponseEntity<>(productService.deleteProduct(id), HttpStatus.OK);
     }
 
     @GetMapping("/number")
