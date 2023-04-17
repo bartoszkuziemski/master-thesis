@@ -998,3 +998,4 @@
 /products?priceMax=3643.27&ratingMin=0.93
 /products?name=x&priceMin=4961.59&priceMax=4976.84&categoryType=FASHION&categoryType=HEALTH&categoryType=SPORT&categoryType=AUTOMOTIVE&categoryType=BEAUTY&categoryType=HOME_AND_GARDEN&categoryType=FOOD&categoryType=ELECTRONICS&categoryType=ART&conditionType=NEW_WITH_DEFECT&conditionType=NEW_WITHOUT_TAG&offerType=BUY_NOW&offerType=AUCTION
 /products?priceMax=3051.80&ratingMin=4.63&categoryType=HOME_AND_GARDEN&categoryType=FASHION&conditionType=NEW&conditionType=USED&conditionType=NEW_WITHOUT_TAG&offerType=AUCTION
+/products?priceMax=4873.10&categoryType=FASHION&categoryType=ELECTRONICS&categoryType=AUTOMOTIVE&categoryType=HOME_AND_GARDEN&categoryType=HEALTH
