@@ -12,6 +12,8 @@ import com.example.model.enums.ConditionType;
 import com.example.model.enums.OfferType;
 import com.example.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -22,9 +24,9 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ProductService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-    private Long commonIdForThreads = 10000L;
 
     @Transactional
     public ProductDto addProduct(ProductAddDto productAddDto) {
@@ -38,9 +40,12 @@ public class ProductService {
     }
 
     @Transactional
-    public String deleteProduct() {
-        Long id = getNextId();
-        productRepository.deleteById(id);
+    public String deleteProduct(Long id) {
+        boolean isDeleted = productRepository.deleteById(id);
+        if (!isDeleted) {
+            LOGGER.warn("Product with id {} does not exist", id);
+            throw new ApplicationException(Error.PRODUCT_NOT_FOUND);
+        }
         return "Product deleted";
     }
 
@@ -69,7 +74,7 @@ public class ProductService {
                 conditionType,
                 offerType
         );
-        List<Product> products = productRepository.findByProductSearchDto(productSearchDto);
+        List<Product> products = productRepository.findByProductSearchDto(productSearchDto, 0, 50);
         return productMapper.toDto(products);
     }
 
@@ -79,10 +84,4 @@ public class ProductService {
                 .orElseThrow(() -> new ApplicationException(Error.PRODUCT_NOT_FOUND));
         return productMapper.toDto(product);
     }
-
-    private synchronized Long getNextId() {
-        commonIdForThreads++;
-        return commonIdForThreads;
-    }
-
 }

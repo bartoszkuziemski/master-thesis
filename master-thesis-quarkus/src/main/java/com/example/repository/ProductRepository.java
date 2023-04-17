@@ -21,7 +21,7 @@ public class ProductRepository implements PanacheRepository<Product> {
     @Inject
     EntityManager entityManager;
 
-    public List<Product> findByProductSearchDto(ProductSearchDto productSearchDto) {
+    public List<Product> findByProductSearchDto(ProductSearchDto productSearchDto, int page, int size) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> query = criteriaBuilder.createQuery(Product.class);
         Root<Product> root = query.from(Product.class);
@@ -81,6 +81,9 @@ public class ProductRepository implements PanacheRepository<Product> {
 
         query.distinct(true);
         query.select(root).where(predicates.toArray(new Predicate[0]));
-        return entityManager.createQuery(query).getResultList();
+        return entityManager.createQuery(query)
+                .setFirstResult(page)
+                .setMaxResults(size)
+                .getResultList();
     }
 }
