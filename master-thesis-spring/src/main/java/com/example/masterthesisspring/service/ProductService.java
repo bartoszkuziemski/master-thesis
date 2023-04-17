@@ -16,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,7 +76,8 @@ public class ProductService {
                 conditionType,
                 offerType
         );
-        List<Product> products = productRepository.findAll(new ProductSpecification(productSearchDto));
+        Pageable pageable = PageRequest.of(0, 50);
+        List<Product> products = productRepository.findAll(new ProductSpecification(productSearchDto), pageable).toList();
         return productMapper.toDto(products);
     }
 
