@@ -17,7 +17,7 @@ end
 local urls = loadFile()
 
 request = function()
-    local url_path = urls[math.random(0, 999)]
+    local url_path = urls[math.random(1, 1000)]
     local headers = { ["Content-Type"] = "application/json;charset=UTF-8" }
     return wrk.format("GET", url_path, headers)
 end

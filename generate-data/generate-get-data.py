@@ -53,7 +53,7 @@ def generate_url():
     return url
 
 
-num_urls = 1000
+num_urls = 1001
 with open('urls.txt', mode='w', newline='') as file:
     for i in range(num_urls):
         url = generate_url()

@@ -27,6 +27,6 @@ def generate_row():
 with open('products.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['name', 'price', 'description', 'rating', 'user', 'categoryType', 'conditionType', 'offerType'])
-    for i in range(1000):
+    for i in range(1001):
         row = generate_row()
         writer.writerow(row)

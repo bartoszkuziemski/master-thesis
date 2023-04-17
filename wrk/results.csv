@@ -26,3 +26,6 @@ time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status
 get_products
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,20,200,13217,66103877,0,0,0,0,0,18390.624430753,16735,21183,26319,56767,123007,177279,186111,186111,
+post_product
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,100,1000,21500,22502459,0,0,0,28,0,27825.41575,27679,38079,44063,60063,84223,88767,88895,88895,

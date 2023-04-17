@@ -57,7 +57,7 @@ local data = loadFile()
 
 request = function()
 	local url_path = "/products"
-	local val = data[math.random(0, 999)]
+	local val = data[math.random(1, 1000)]
 
 	local headers = { ["Content-Type"] = "application/json;charset=UTF-8" }
 	return wrk.format("POST", url_path, headers, cjson.encode(val))

@@ -22,7 +22,7 @@ def generate_sql_insert():
     offer_type = random.choice(OFFER_TYPES)
     return f"INSERT INTO product (name, price, description, rating, user_id, category_type, condition_type, offer_type) VALUES ('{name}', {price}, '{description}', {rating}, {user_id}, '{category_type}', '{condition_type}', '{offer_type}');\n"
 
-# Generate an SQL file with 1000 rows of data
+# Generate an SQL file with 10000 rows of data
 with open('V3.0__insert_products.sql', 'w') as sql_file:
     for i in range(10000):
         sql_insert = generate_sql_insert()
