@@ -15,4 +15,17 @@ delete_product
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799796,1799999434,0,0,0,0,0,21308.139566749,4647,5239,5855,852479,1208319,1394687,1504255,1574911,
 ==============
+quarkus
 
+get_product_by_id
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,100,1000,1799799,1799997898,0,0,0,0,0,2108.2019846918,2095,2397,2681,3271,4127,5231,18895,28335,
+get_products
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,20,200,359993,1799967861,0,0,0,0,0,7030.5816136971,6411,8519,10623,13687,22687,29055,36063,44959,
+post_product
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,100,1000,1799763,1799964772,0,0,0,0,0,9135.1543662491,4459,5055,5655,45535,991231,1499135,1688575,1776639,
+delete_product
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,100,1000,1799796,1799999442,0,0,0,0,0,9328.3251690279,4515,5047,5599,140671,799743,1084415,1250303,1350655,
