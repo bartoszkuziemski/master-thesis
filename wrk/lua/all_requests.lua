@@ -57,6 +57,23 @@ end
 
 local data = loadFile()
 
+loadUrlsFile = function()
+    local filename = "./lua/urls.txt"
+
+    local data = {}
+    local count = 0
+
+    for line in io.lines(filename) do
+        data[count] = line
+        count = count + 1
+    end
+
+    return data
+end
+
+local urls = loadUrlsFile()
+
+
 -- Define the request functions
 local function post_request()
     local url_path = "/products"
@@ -80,13 +97,21 @@ local function get_request()
     return wrk.format("GET", url_path, headers)
 end
 
+local function get_products_request()
+    local url_path = urls[math.random(1, 1000)]
+    local headers = { ["Content-Type"] = "application/json;charset=UTF-8" }
+    return wrk.format("GET", url_path, headers)
+end
+
 -- Define the request function that will be called by wrk
 request = function()
     local random_number = math.random(1, 100)
 
-    if random_number <= 70 then
+    if random_number <= 60 then
         return get_request()
-    elseif random_number > 70 and random_number <= 85 then
+    elseif random_number > 60 and random_number <= 80 then
+        return get_products_request()
+    elseif random_number > 80 and random_number <= 90 then
         return delete_request()
     else
         return post_request()
