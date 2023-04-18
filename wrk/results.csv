@@ -1,21 +1,20 @@
-spring
+=============================== spring ================================
+
 get_product_by_id
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799800,1799997587,0,0,0,0,0,2362.4849860044,2365,2667,2939,3567,3927,6123,10527,23471,
+get_products
+time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
+30,20,200,359801,1800030855,0,0,0,0,0,38520.852488966,37887,48575,60223,79039,91583,113279,141567,165503,
 post_product
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799764,1799965495,0,0,0,0,0,21683.393412877,4859,5455,6055,776703,1466367,1686527,1790975,2045951,
-all_requests
-time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
-30,100,1000,1799756,1799957824,0,0,0,0,0,4050.9415475662,2545,3623,5023,7015,361983,659967,791039,935935,
-post_product
-time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
-30,100,1000,1799762,1799965976,0,0,0,0,0,22712.693290281,4835,5399,5999,835071,1715199,1925119,2050047,2203647,
 delete_product
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799796,1799999434,0,0,0,0,0,21308.139566749,4647,5239,5855,852479,1208319,1394687,1504255,1574911,
-==============
-quarkus
+
+
+=============================== quarkus ================================
 
 get_product_by_id
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
@@ -29,3 +28,4 @@ time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status
 delete_product
 time,connections,rate,req_num,duration,err_connect,err_read,err_write,err_status,err_timeout,latency_avg,p50,p75,p90,p99,p99_9,p99_99,p99_999,p100
 30,100,1000,1799796,1799999442,0,0,0,0,0,9328.3251690279,4515,5047,5599,140671,799743,1084415,1250303,1350655,
+
