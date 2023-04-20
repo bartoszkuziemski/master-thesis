@@ -59,9 +59,8 @@ public class ProductController {
     }
 
     @DELETE
-    @Path("/{id}")
-    public Response deleteProduct(@PathParam("id") Long id) {
-        String message = productService.deleteProduct(id);
+    public Response deleteProduct() {
+        String message = productService.deleteProduct();
         return Response.ok(message).build();
     }
 

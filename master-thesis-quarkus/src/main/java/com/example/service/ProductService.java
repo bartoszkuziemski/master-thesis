@@ -27,6 +27,7 @@ public class ProductService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private Long threadsCommonId = 1000L;
 
     @Transactional
     public ProductDto addProduct(ProductAddDto productAddDto) {
@@ -40,7 +41,8 @@ public class ProductService {
     }
 
     @Transactional
-    public String deleteProduct(Long id) {
+    public String deleteProduct() {
+        Long id = this.getNextId();
         boolean isDeleted = productRepository.deleteById(id);
         if (!isDeleted) {
             LOGGER.warn("Product with id {} does not exist", id);
@@ -83,5 +85,10 @@ public class ProductService {
                 .findByIdOptional(id)
                 .orElseThrow(() -> new ApplicationException(Error.PRODUCT_NOT_FOUND));
         return productMapper.toDto(product);
+    }
+
+    private synchronized Long getNextId() {
+        threadsCommonId++;
+        return threadsCommonId;
     }
 }
