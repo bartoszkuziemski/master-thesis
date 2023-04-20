@@ -1,8 +1,5 @@
-local product_id = 1000
-
 request = function()
-    product_id = product_id + 1
-    path = "/products/" .. product_id
+    path = "/products"
     headers = { ["Content-Type"] = "application/json;charset=UTF-8" }
     return wrk.format("DELETE", path, headers)
 end

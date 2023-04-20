@@ -13,9 +13,6 @@ import com.example.masterthesisspring.model.enums.OfferType;
 import com.example.masterthesisspring.repository.ProductRepository;
 import com.example.masterthesisspring.repository.ProductSpecification;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,9 +24,9 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private Long threadsCommonId = 1000L;
 
     public ProductDto addProduct(ProductAddDto productAddDto) {
         Product product = productMapper.toEntity(productAddDto);
@@ -41,13 +38,9 @@ public class ProductService {
         return productMapper.toDto(productRepository.findAll());
     }
 
-    public String deleteProduct(Long id) {
-        try {
-            productRepository.deleteById(id);
-        } catch (EmptyResultDataAccessException exception) {
-            LOGGER.warn("Product with id {} does not exist", id);
-            throw new ApplicationException(Error.PRODUCT_NOT_FOUND);
-        }
+    public String deleteProduct() {
+        Long id = this.getNextId();
+        productRepository.deleteById(id);
         return "Product deleted";
     }
 
@@ -86,5 +79,10 @@ public class ProductService {
                 .findById(id)
                 .orElseThrow(() -> new ApplicationException(Error.PRODUCT_NOT_FOUND));
         return productMapper.toDto(product);
+    }
+
+    private synchronized Long getNextId() {
+        threadsCommonId++;
+        return threadsCommonId;
     }
 }
