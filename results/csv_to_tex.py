@@ -6,20 +6,35 @@ with open('data.csv', newline='') as csvfile:
     data_reader = csv.DictReader(csvfile)
     data = [row for row in data_reader]
 
-# Calculate the required metrics from the data
-req_num = int(data[0]['req_num'])
-req_per_sec = req_num / (float(data[0]['duration']) / 1000000)
-errors = sum([int(data[0]['err_connect']), int(data[0]['err_read']), int(data[0]['err_write']), int(data[0]['err_status']), int(data[0]['err_timeout'])])
-errors_percentage = errors / req_num * 100
-average_latency = float(data[0]['latency_avg']) / 1000
-p50 = float(data[0]['p50']) / 1000
-p75 = float(data[0]['p75']) / 1000
-p90 = float(data[0]['p90']) / 1000
-p99 = float(data[0]['p99']) / 1000
-p99_9 = float(data[0]['p99_9']) / 1000
-p99_99 = float(data[0]['p99_99']) / 1000
-p99_999 = float(data[0]['p99_999']) / 1000
-p100 = float(data[0]['p100']) / 1000
+# Initialize lists to hold data
+req_nums = []
+req_per_secs = []
+errors_percentages = []
+average_latencies = []
+p50s = []
+p75s = []
+p90s = []
+p99s = []
+p99_9s = []
+p99_99s = []
+p99_999s = []
+p100s = []
+
+# Extract data from each row of the CSV file
+for row in data:
+    req_nums.append(int(row['req_num']))
+    req_per_secs.append(req_nums[-1] / (float(row['duration']) / 1000000))
+    errors = sum([int(row['err_connect']), int(row['err_read']), int(row['err_write']), int(row['err_status']), int(row['err_timeout'])])
+    errors_percentages.append(errors / req_nums[-1] * 100)
+    average_latencies.append(float(row['latency_avg']) / 1000)
+    p50s.append(float(row['p50']) / 1000)
+    p75s.append(float(row['p75']) / 1000)
+    p90s.append(float(row['p90']) / 1000)
+    p99s.append(float(row['p99']) / 1000)
+    p99_9s.append(float(row['p99_9']) / 1000)
+    p99_99s.append(float(row['p99_99']) / 1000)
+    p99_999s.append(float(row['p99_999']) / 1000)
+    p100s.append(float(row['p100']) / 1000)
 
 time = int(data[0]['time'])
 connections = int(data[0]['connections'])
@@ -30,20 +45,20 @@ table = 'Czas trwania: {:d} min \\\\ \n'.format(time)
 table += 'Liczba użytkowników: {:d} \\\\ \n'.format(connections)
 table += 'Zadane obciążenie [req/s]: {:d} \\\\ \n'.format(rate)
 table += '\\begin{table}\n'
-table += '\t\\begin{tabular}{|l|c|}\n'
+table += '\t\\begin{tabular}{|l|' + 'c|' * len(data) + '}\n'
 table += '\t\t\\hline\n'
-table += '\t\t &  \\\\ \\hline\n'
-table += '\t\tObciążenie [req/s] & {:.2f} \\\\ \\hline\n'.format(req_per_sec)
-table += '\t\tBłędne odpowiedzi [\%] & {} \\\\ \\hline\n'.format(errors_percentage)
-table += '\t\tŚrednie opóźnienie [ms] & {:.2f} \\\\ \\hline\n'.format(average_latency)
-table += '\t\tP50 [ms] & {:.2f} \\\\ \\hline\n'.format(p50)
-table += '\t\tP75 [ms] & {:.2f} \\\\ \\hline\n'.format(p75)
-table += '\t\tP90 [ms] & {:.2f} \\\\ \\hline\n'.format(p90)
-table += '\t\tP99 [ms] & {:.2f} \\\\ \\hline\n'.format(p99)
-table += '\t\tP99.9 [ms] & {:.2f} \\\\ \\hline\n'.format(p99_9)
-table += '\t\tP99.99 [ms] & {:.2f} \\\\ \\hline\n'.format(p99_99)
-table += '\t\tP99.999 [ms] & {:.2f} \\\\ \\hline\n'.format(p99_999)
-table += '\t\tP100 [ms] & {:.2f} \\\\ \\hline\n'.format(p100)
+table += '\t\t & ' + ' & '.join(['Req {}'.format(i+1) for i in range(len(data))]) + ' \\\\ \\hline\n'
+table += '\t\tObciążenie [req/s] & ' + ' & '.join(['{:.2f}'.format(x) for x in req_per_secs]) + ' \\\\ \\hline\n'
+table += '\t\tBłędne odpowiedzi [\%] & ' + ' & '.join(['{:.2f}'.format(x) for x in errors_percentages]) + ' \\\\ \\hline\n'
+table += '\t\tŚrednie opóźnienie [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in average_latencies]) + ' \\\\ \\hline\n'
+table += '\t\tP50 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p50s]) + ' \\\\ \\hline\n'
+table += '\t\tP75 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p75s]) + ' \\\\ \\hline\n'
+table += '\t\tP90 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p90s]) + ' \\\\ \\hline\n'
+table += '\t\tP99 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p99s]) + ' \\\\ \\hline\n'
+table += '\t\tP99.9 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p99_9s]) + ' \\\\ \\hline\n'
+table += '\t\tP99.99 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p99_99s]) + ' \\\\ \\hline\n'
+table += '\t\tP99.999 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p99_999s]) + ' \\\\ \\hline\n'
+table += '\t\tP100 [ms] & ' + ' & '.join(['{:.2f}'.format(x) for x in p100s]) + ' \\\\ \\hline\n'
 table += '\t\\end{tabular}\n'
 table += '\t\\centering\n'
 table += '\t\\caption{}\n'
