@@ -1,4 +1,4 @@
-echo "all_requests" >> results.csv
+echo "load_test" >> results.csv
 
 time=30
 connections=50
