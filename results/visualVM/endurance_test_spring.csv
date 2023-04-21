@@ -1,4 +1,4 @@
-"Time [ms]","CPU usage [%]","GC activity [%]","Size [B]","Used [B]","Total loaded","Shared loaded","Live","Daemon"
+time,cpu,gc,size,used,classes,classes_shared,live,daemon
 "09:10:54.616, 19 kwi 2023","0,6","0,0",94 371 840,48 663 440,12 729,0,30,26
 "09:11:04.623, 19 kwi 2023","60,9","0,0",94 371 840,60 724 576,13 938,0,72,68
 "09:11:14.631, 19 kwi 2023","29,4","0,0",94 371 840,64 583 216,13 941,0,72,68

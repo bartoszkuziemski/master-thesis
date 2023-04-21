@@ -1,7 +1,7 @@
 import csv
 
 # Open the input and output CSV files
-with open('endurance.csv', 'r') as input_file, open('endurance_spring.csv', 'w', newline='') as output_file:
+with open('endurance.csv', 'r') as input_file, open('endurance_test_spring.csv', 'w', newline='') as output_file:
 
     # Create a CSV reader for the input file
     reader = csv.reader(input_file)
