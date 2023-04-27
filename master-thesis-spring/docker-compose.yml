@@ -15,8 +15,7 @@ services:
 
   backend:
     container_name: spring-backend
-    build:
-      context: .
+    image: master-thesis-spring:0.0.1-SNAPSHOT
     ports:
       - "8081:8081"
       - "9010:9010"
