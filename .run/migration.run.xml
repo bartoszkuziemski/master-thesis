@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="migration" type="DatabaseScript" editBeforeRun="true">
+    <script-file value="$PROJECT_DIR$/master-thesis-spring/src/main/resources/db/migration/V0.0__clear.sql" />
+    <script-file value="$PROJECT_DIR$/master-thesis-spring/src/main/resources/db/migration/V1.0__create-tables.sql" />
+    <script-file value="$PROJECT_DIR$/master-thesis-spring/src/main/resources/db/migration/V2.0__insert_users.sql" />
+    <script-file value="$PROJECT_DIR$/master-thesis-spring/src/main/resources/db/migration/V3.0__insert_products.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="e20719e8-1630-4f68-a51a-7cda59295d89" namespace="database/&quot;postgres_db&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

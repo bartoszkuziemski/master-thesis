@@ -1,0 +1,6 @@
+FROM container-registry.oracle.com/os/oraclelinux:8-slim
+#FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6
+WORKDIR /app
+COPY target/master-thesis-spring.exe /app/myapp
+EXPOSE 8081
+ENTRYPOINT ["/app/myapp"]
