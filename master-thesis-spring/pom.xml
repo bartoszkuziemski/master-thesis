@@ -62,33 +62,33 @@
                     </excludes>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.graalvm.buildtools</groupId>-->
-<!--                <artifactId>native-maven-plugin</artifactId>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>native</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.graalvm.buildtools</groupId>
-                        <artifactId>native-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>build-native</id>
-                                <goals>
-                                    <goal>compile-no-fork</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>native</id>-->
+<!--&lt;!&ndash;            <build>&ndash;&gt;-->
+<!--&lt;!&ndash;                <plugins>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <groupId>org.graalvm.buildtools</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <artifactId>native-maven-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <executions>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <execution>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <id>build-native</id>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <goals>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <goal>compile-no-fork</goal>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </goals>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <phase>package</phase>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </execution>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </executions>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;                </plugins>&ndash;&gt;-->
+<!--&lt;!&ndash;            </build>&ndash;&gt;-->
 <!--            <build>-->
 <!--                <plugins>-->
 <!--                    <plugin>-->
@@ -105,15 +105,15 @@
 <!--                            </execution>-->
 <!--                        </executions>-->
 <!--                        <configuration>-->
-<!--                            <imageName>myapp</imageName>-->
-<!--                            <buildArgs>-->
-<!--                                <arg>-H:IncludeResources=.*</arg>-->
+<!--                            <buildArgs combine.children="append">-->
+<!--                                <buildArgs>-H:+AllowVMInspection</buildArgs>-->
+<!--                                <buildArg>-H:+ReportExceptionStackTraces</buildArg>-->
 <!--                            </buildArgs>-->
 <!--                        </configuration>-->
 <!--                    </plugin>-->
 <!--                </plugins>-->
 <!--            </build>-->
-        </profile>
-    </profiles>
+<!--        </profile>-->
+<!--    </profiles>-->
 
 </project>
