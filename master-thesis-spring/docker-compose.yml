@@ -25,6 +25,10 @@ services:
       - "9010:9010"
     depends_on:
       - db
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
 
 volumes:
   path:
