@@ -1,0 +1,16 @@
+spring:
+mvn clean package -DskipTests
+docker build -f .\Dockerfile --progress=plain -t master-thesis-spring .
+
+spring-native:
+docker build -f .\Dockerfile.native --progress=plain -t master-thesis-spring-native .
+OR without graalVM:
+mvn clean package -DskipTests spring-boot:build-image -Pnative
+
+quarkus:
+mvn clean package -DskipTests
+docker build -f .\Dockerfile --progress=plain -t master-thesis-quarkus .
+
+quarkus-native:
+mvn package -Pnative --define quarkus.native.container-build=true -DskipTests
+docker build -f .\Dockerfile.native --progress=plain -t master-thesis-quarkus:0.0.1-SNAPSHOT .

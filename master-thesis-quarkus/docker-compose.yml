@@ -5,9 +5,9 @@ services:
     image: postgres:14.4-alpine
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres_db
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - '5432:5432'
     volumes:
@@ -15,7 +15,11 @@ services:
 
   backend:
     container_name: quarkus-backend
-    image: master-thesis-quarkus-native
+    image: master-thesis-quarkus
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8081:8081"
       - "9010:9010"

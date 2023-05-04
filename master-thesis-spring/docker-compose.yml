@@ -15,7 +15,7 @@ services:
 
   backend:
     container_name: spring-backend
-    image: master-thesis-spring-native
+    image: master-thesis-spring
     environment:
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}
