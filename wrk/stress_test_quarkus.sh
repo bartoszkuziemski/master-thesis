@@ -7,11 +7,11 @@ function cleanup() {
 
 echo "stress_test" >> results.csv
 
-for i in {1..30}
+for i in {1..31}
 do
     rate=$((i * 100))
     connections=$((i * 10))
-    time=5
+    time=10
     command="./wrk -t1 -c$connections -d${time}m -R$rate -s ./lua/all_requests.lua --latency http://localhost:8081"
     echo -n "$time,$connections,$rate," >> results.csv
     $command || cleanup
