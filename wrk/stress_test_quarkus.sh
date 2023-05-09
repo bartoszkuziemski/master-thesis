@@ -6,9 +6,8 @@ function cleanup() {
 }
 
 echo "stress_test" >> results.csv
-values=(5 6 10 15 18 20 21 22 23 24 25 26 27 28)
 
-for i in "${values[@]}"
+for i in {1..30}
 do
     rate=$((i * 100))
     connections=$((i * 10))
