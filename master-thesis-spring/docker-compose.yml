@@ -15,7 +15,7 @@ services:
 
   backend:
     container_name: spring-backend
-    image: master-thesis-spring
+    image: master-thesis-spring:0.0.1-SNAPSHOT
     environment:
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}
