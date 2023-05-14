@@ -15,7 +15,7 @@ services:
 
   backend:
     container_name: quarkus-backend
-    image: master-thesis-quarkus
+    image: master-thesis-quarkus:0.0.1-SNAPSHOT
     environment:
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}

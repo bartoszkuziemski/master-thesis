@@ -5,8 +5,8 @@
 # --u_latency: provides detailed uncorrected latency percentile information
 
 # plain tests for post, get, delete
-./wrk -t20 -c100 -d30m -R1000 -s post_product.lua --u_latency http://localhost:8081
-./wrk -t20 -c100 -d30m -R100 -s get_products.lua --u_latency http://localhost:8081
-./wrk -t1 -c100 -d30m -R1000 -s get_product_by_id.lua --u_latency http://localhost:8081
-./wrk -t20 -c100 -d30m -R1000 -s delete_product_by_id.lua --u_latency http://localhost:8081
+./wrk -t20 -c100 -d30m -R1000 -s ./lua/post_product.lua --u_latency http://localhost:8081
+./wrk -t20 -c100 -d30m -R100 -s ./lua/get_products.lua --u_latency http://localhost:8081
+./wrk -t1 -c100 -d30m -R1000 -s ./lua/get_product_by_id.lua --u_latency http://localhost:8081
+./wrk -t20 -c100 -d30m -R1000 -s ./lua/delete_product_by_id.lua --u_latency http://localhost:8081
 
