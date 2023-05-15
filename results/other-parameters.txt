@@ -1,0 +1,17 @@
+czas uruchamiania:
+spring: 5.16s
+quarkus:
+spring native:
+quarkus native:
+
+czas budowania obrazu:
+spring:
+quarkus:
+spring native:
+quarkus native:
+
+rozmiar obrazu:
+spring:
+quarkus:
+spring native:
+quarkus native:
