@@ -1,8 +1,8 @@
 import pandas as pd
 
 # read in the two csv files with custom delimiter and thousands separator
-df1 = pd.read_csv('endurance_test_spring.csv', delimiter=',', thousands=' ')
-df2 = pd.read_csv('endurance_test_quarkus.csv', delimiter=',', thousands=' ')
+df1 = pd.read_csv('post_product/spring_post_product.csv', delimiter=',', thousands=' ')
+df2 = pd.read_csv('post_product/quarkus_post_product.csv', delimiter=',', thousands=' ')
 
 # compute the required statistics for each dataframe
 df1_stats = [df1['cpu'].str.replace(',', '.').astype(float).mean(),
