@@ -1,6 +1,6 @@
 czas uruchamiania:
 spring: 5.16s
-quarkus:
+quarkus: 2.587s
 spring native:
 quarkus native:
 
