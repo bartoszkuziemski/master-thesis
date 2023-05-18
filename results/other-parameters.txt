@@ -1,8 +1,8 @@
 czas uruchamiania:
 spring: 5.16s
 quarkus: 2.587s
-spring native:
-quarkus native:
+spring native: 0.369s
+quarkus native: 0.185s
 
 czas budowania obrazu:
 spring:
