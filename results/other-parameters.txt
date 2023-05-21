@@ -4,11 +4,11 @@ quarkus: 2.587s
 spring native: 0.369s
 quarkus native: 0.185s
 
-czas budowania obrazu:
-spring:
-quarkus:
-spring native:
-quarkus native:
+czas budowania:
+spring: 7.096 s
+quarkus: 13.632 s
+spring native: 5m 44s
+quarkus native: 3m 34s
 
 rozmiar obrazu:
 spring:
